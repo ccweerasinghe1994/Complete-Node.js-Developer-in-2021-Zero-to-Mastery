@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "simple node basics",
   "main": "https.js",
+  "repository": {
+    "url": "https://github.com/ccweerasinghe1994/Complete-Node.js-Developer-in-2021-Zero-to-Mastery"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node request.js"
