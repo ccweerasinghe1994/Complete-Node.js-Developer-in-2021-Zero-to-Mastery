@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node request.js"
+    "start": "node request.js",
+    "dev": "nodemon request.js"
   },
   "keywords": [],
   "author": "",
