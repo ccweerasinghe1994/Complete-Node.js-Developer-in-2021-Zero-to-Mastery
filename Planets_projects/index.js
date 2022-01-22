@@ -4,6 +4,7 @@ const fs = require("fs");
 const HabitablePlanets = [];
 
 const isHabitablePlanet = (planet) => {
+  
   return (
     planet["koi_disposition"] === "CONFIRMED" &&
     planet["koi_insol"] > 0.36 &&
@@ -21,6 +22,7 @@ fs.createReadStream("keplor_data.csv")
   )
   .on("data", (data) => {
     if (isHabitablePlanet(data)) {
+      console.log(data);
       HabitablePlanets.push(data);
     }
   })
@@ -30,5 +32,3 @@ fs.createReadStream("keplor_data.csv")
   .on("end", () => {
     console.log(`${HabitablePlanets.length} habitable planets found`);
   });
-
-

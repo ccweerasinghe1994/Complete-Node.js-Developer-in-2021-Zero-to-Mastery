@@ -15,7 +15,7 @@ celebrity.on("race", (result) => {
 
 // subscribe to the celebrity observer two
 celebrity.on("race", (result) => {
-  if (result === "win") {
+  if (result === "lost") {
     console.log("boo i could have done much better");
   }
 });
