@@ -4,22 +4,31 @@ const http = require("http");
 const PORT = 3000;
 
 const server = http.createServer((req, res) => {
-  // req and req
-  // both are readable streams
-  //   so we can read them using .on function
+  const friends = [
+    {
+      id: 0,
+      name: "chamara",
+    },
+    {
+      id: 1,
+      name: "gagani",
+    },
+    {
+      id: 2,
+      name: "shan",
+    },
+  ];
+  const items = req.url.split("/");
 
-  //   to write headers
-  if (req.url === "/friends") {
+  if (items[1] === "friends") {
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/json");
-
-    res.end(
-      JSON.stringify({
-        id: 1,
-        name: "sir issac newton",
-      })
-    );
-  } else if (req.url === "/messages") {
+    if (items.length === 3) {
+      res.end(JSON.stringify(friends[Number(items[2])]));
+    } else {
+      res.end(JSON.stringify(friends));
+    }
+  } else if (items[1] === "messages") {
     res.setHeader("Content-Type", "text/html");
     res.write("<html>");
     res.write("<body>");
@@ -30,9 +39,8 @@ const server = http.createServer((req, res) => {
     res.write("</body>");
     res.write("</html>");
     res.end();
-  }
-  // adding more is not allowed
-  else {
+    // adding more is not allowed
+  } else {
     res.statusCode = 404;
     res.end();
   }
