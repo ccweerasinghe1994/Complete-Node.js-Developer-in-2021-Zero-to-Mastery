@@ -26,6 +26,7 @@ const server = http.createServer((req, res) => {
       const friend = data.toString();
       friends.push(JSON.parse(friend));
     });
+    req.pipe(res);
   } else if ((req.method = "GET" && items[1] === "friends")) {
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/json");
