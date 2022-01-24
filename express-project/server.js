@@ -4,11 +4,26 @@ const PORT = 3000;
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send({
+const friends = [
+  {
+    id: 1,
+    name: "sir albert einstein",
+  },
+  {
     id: 1,
     name: "sir issac newton",
-  });
+  },
+];
+
+app.get("/friends", (req, res) => {
+  res.json(friends);
+});
+
+app.get("/friends/:friedId", (req, res) => {
+  const friendId = Number(req.params.friedId);
+  const friend = friends[friendId];
+  if (!friend) res.status(404).json({ error: 'friend doesn"t exists' });
+  res.status(200).json(friend);
 });
 
 app.get("/messages", (req, res) => {
