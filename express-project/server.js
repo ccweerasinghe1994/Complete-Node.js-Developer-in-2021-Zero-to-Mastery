@@ -7,8 +7,9 @@ const messageRouter = require("./routes/messages.routes");
 const PORT = 3000;
 
 const app = express();
-
-app.use("/site", express.static(path.join(__dirname, "public")));
+// setting the view engine.
+app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "views"));
 
 // middle ware
 app.use((req, res, next) => {
@@ -21,6 +22,14 @@ app.use((req, res, next) => {
   console.log(`${method} ${baseUrl}${url} ${delta} ms`);
 });
 
+app.use("/site", express.static(path.join(__dirname, "public")));
+
+app.get("/", (req, res) => {
+  res.render("index", {
+    title: "my friends are very clever",
+    caption: "Let's go skiing",
+  });
+});
 // this convert the body to javascript
 app.use(express.json());
 
