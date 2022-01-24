@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 
 const friendRouter = require("./routes/friends.routes");
 const messageRouter = require("./routes/messages.routes");
@@ -6,6 +7,8 @@ const messageRouter = require("./routes/messages.routes");
 const PORT = 3000;
 
 const app = express();
+
+app.use("/site", express.static(path.join(__dirname, "public")));
 
 // middle ware
 app.use((req, res, next) => {
