@@ -15,6 +15,15 @@ const friends = [
   },
 ];
 
+app.use((req, res, next) => {
+  const time = new Date();
+  const url = req.url;
+  const method = req.method;
+  next();
+  const delta = new Date() - time;
+  console.log(`${method} ${url} ${delta} ms`);
+});
+
 app.get("/friends", (req, res) => {
   res.json(friends);
 });
