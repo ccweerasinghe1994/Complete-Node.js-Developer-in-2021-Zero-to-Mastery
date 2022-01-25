@@ -1,5 +1,6 @@
-const parse = require("csv-parse");
 const fs = require("fs");
+
+const parse = require("csv-parse");
 
 const habitablePlanets = [];
 
@@ -35,4 +36,3 @@ fs.createReadStream("keplor_data.csv")
     console.table(planetNames);
     console.log(`${habitablePlanets.length} habitable planets found`);
   });
-
