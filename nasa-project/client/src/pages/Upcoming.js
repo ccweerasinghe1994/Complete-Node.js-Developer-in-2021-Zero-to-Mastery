@@ -13,7 +13,7 @@ const styles = () => ({
 
 const Upcoming = (props) => {
   const { entered, launches, classes, abortLaunch } = props;
-
+  
   const tableBody = useMemo(() => {
     return launches
       ?.filter((launch) => launch.upcoming)
