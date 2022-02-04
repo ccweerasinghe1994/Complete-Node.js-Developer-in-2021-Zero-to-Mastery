@@ -5,7 +5,7 @@ const launchSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  launchDate: {
+  launchData: {
     type: Date,
     required: true,
   },
@@ -35,3 +35,7 @@ const launchSchema = new mongoose.Schema({
     default: true,
   },
 });
+
+// connects launchesSchema with the "launches" collection
+
+module.exports = mongoose.model("Launch", launchSchema);
