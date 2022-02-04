@@ -1,15 +1,15 @@
 const {
   getAllLaunches,
-  addNewLaunches,
   existsLaunchWithId,
   abortLaunchById,
+  scheduleNewLaunch,
 } = require("../../models/launches.model");
 
 async function httpGetAllLaunches(req, res) {
   return res.status(200).json(await getAllLaunches());
 }
 
-function httpAddNewLaunches(req, res) {
+async function httpAddNewLaunches(req, res) {
   const launch = req.body;
   const { rocket, target, mission, launchDate } = launch;
   // validation
@@ -25,7 +25,8 @@ function httpAddNewLaunches(req, res) {
       error: "Invalid Launch Date",
     });
 
-  addNewLaunches(launch);
+  await scheduleNewLaunch(launch);
+
   return res.status(201).json(launch);
 }
 
