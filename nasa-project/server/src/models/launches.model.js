@@ -22,16 +22,22 @@ async function getAllLaunches() {
   return await launchesDataBase.find({}, { _id: 0, __v: 0 });
 }
 
-function existsLaunchWithId(launchId) {
-  return launches.has(launchId);
+async function existsLaunchWithId(launchId) {
+  return await launchesDataBase.findOne({ launchNumber: launchId });
 }
 
-function abortLaunchById(launchId) {
-  const aborted = launches.get(launchId);
+async function abortLaunchById(launchId) {
+  const aborted = await launchesDataBase.updateOne(
+    {
+      flightNumber: launchId,
+    },
+    {
+      upcoming: false,
+      success: false,
+    }
+  );
 
-  aborted.upcoming = false;
-  aborted.success = false;
-  return aborted;
+  return aborted.acknowledged && aborted.modifiedCount === 1;
 }
 
 async function saveLaunches(launch) {
