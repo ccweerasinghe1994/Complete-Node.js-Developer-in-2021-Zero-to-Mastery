@@ -1,9 +1,9 @@
-const axios = require("axios");
+import axios from 'axios';
 
 axios
-  .get("https://www.google.com")
+  .get('https://www.google.com')
   .then((response) => console.log(response))
   .catch((error) => console.log(error))
   .then(() => {
-    console.log("All done");
+    console.log('All done');
   });

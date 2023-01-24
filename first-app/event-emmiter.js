@@ -1,12 +1,13 @@
 /**
  * @type class
  */
+
+
 const EventEmitter = require("events");
 
 const celebrity = new EventEmitter();
 
 // subscribe to the celebrity observer one
-
 celebrity.on("race", (result) => {
   if (result === "win") {
     console.log("congratulation! you are the best");
