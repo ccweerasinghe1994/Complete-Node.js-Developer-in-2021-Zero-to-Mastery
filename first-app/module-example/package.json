@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "simple node basics",
   "main": "https.js",
+  "type": "module",
   "repository": {
     "url": "https://github.com/ccweerasinghe1994/Complete-Node.js-Developer-in-2021-Zero-to-Mastery"
   },
@@ -15,6 +16,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.4"
+    "axios": "^1.2.3"
   }
 }
