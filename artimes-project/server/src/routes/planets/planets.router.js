@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { getAllPlanets } from './planet.controller.js';
 
 const planetRouter = Router();
 
