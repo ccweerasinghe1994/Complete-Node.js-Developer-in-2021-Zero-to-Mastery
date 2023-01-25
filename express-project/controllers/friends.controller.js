@@ -8,7 +8,7 @@ function postFriend(req, res) {
   const name = req.body.name;
   if (!name)
     return res.status(400).json({ error: "friend doesn't have a name " });
-
+ 
   const newFriend = {
     id: model.length,
     name: name,
