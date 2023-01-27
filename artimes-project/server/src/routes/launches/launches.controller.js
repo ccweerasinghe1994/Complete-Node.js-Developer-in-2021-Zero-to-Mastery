@@ -1,7 +1,12 @@
-import { getAllLaunches } from '../../models/launches.model.js';
+import { getAllLaunches, setLaunch } from '../../models/launches.model.js';
 
 function httpGetAllLaunches(req, res) {
   return res.status(200).json(getAllLaunches());
 }
 
-export { httpGetAllLaunches };
+function httpSetLaunch(req, res) {
+  const {body} = req;
+  return res.status(200).json(setLaunch(body));
+}
+
+export { httpGetAllLaunches,httpSetLaunch };
