@@ -1,7 +1,7 @@
-import { launches } from '../../models/launches.model.js';
+import { getAllLaunches } from '../../models/launches.model.js';
 
-function getAllLaunches(req, res) {
-  return res.status(200).json(Array.from(launches.values()));
+function httpGetAllLaunches(req, res) {
+  return res.status(200).json(getAllLaunches());
 }
 
-export { getAllLaunches };
+export { httpGetAllLaunches };

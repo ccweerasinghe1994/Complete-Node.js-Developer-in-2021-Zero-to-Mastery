@@ -34,10 +34,13 @@ const loadCSVDate = () => {
         console.log(error);
         reject(error);
       })
-      .on('end', () => {   
+      .on('end', () => {
         resolve();
       });
   });
 };
 
-export { habitablePlanets as planets, loadCSVDate };
+function getAllPlanets() {
+  return habitablePlanets;
+}
+export { getAllPlanets, loadCSVDate };
