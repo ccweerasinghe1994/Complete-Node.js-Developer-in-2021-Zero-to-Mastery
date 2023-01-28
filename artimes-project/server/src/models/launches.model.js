@@ -17,7 +17,7 @@ function getAllLaunches() {
   return Array.from(launches.values());
 }
 
-function setLaunch(body) {
+function addNewLaunch(body) {
   latestLaunchNumber++;
   launches.set(
     latestLaunchNumber,
@@ -31,4 +31,4 @@ function setLaunch(body) {
   return launches.get(latestLaunchNumber);
 }
 
-export { getAllLaunches, setLaunch };
+export { getAllLaunches, addNewLaunch };
