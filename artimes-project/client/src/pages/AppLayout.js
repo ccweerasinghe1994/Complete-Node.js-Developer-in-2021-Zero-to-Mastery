@@ -45,9 +45,10 @@ const AppLayout = (props) => {
   const { launches, isPendingLaunch, submitLaunch, abortLaunch } = useLaunches(
     onSuccessSound,
     onAbortSound,
-    onFailureSound
+    onFailureSound,
   );
 
+  console.log(abortLaunch(1));
   const planets = usePlanets();
 
   return (
@@ -63,7 +64,7 @@ const AppLayout = (props) => {
           {(anim) => (
             <div style={{ padding: '20px' }}>
               <Switch>
-                <Route exact path="/">
+                <Route exact path='/'>
                   <Launch
                     entered={anim.entered}
                     planets={planets}
@@ -71,7 +72,7 @@ const AppLayout = (props) => {
                     isPendingLaunch={isPendingLaunch}
                   />
                 </Route>
-                <Route exact path="/launch">
+                <Route exact path='/launch'>
                   <Launch
                     entered={anim.entered}
                     planets={planets}
@@ -79,14 +80,14 @@ const AppLayout = (props) => {
                     isPendingLaunch={isPendingLaunch}
                   />
                 </Route>
-                <Route exact path="/upcoming">
+                <Route exact path='/upcoming'>
                   <Upcoming
                     entered={anim.entered}
                     launches={launches}
                     abortLaunch={abortLaunch}
                   />
                 </Route>
-                <Route exact path="/history">
+                <Route exact path='/history'>
                   <History entered={anim.entered} launches={launches} />
                 </Route>
               </Switch>
