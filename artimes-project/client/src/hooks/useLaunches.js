@@ -43,7 +43,7 @@ function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
         onFailureSound();
       }
     },
-    [getLaunches, onSuccessSound, onFailureSound]
+    [getLaunches, onSuccessSound, onFailureSound],
   );
 
   const abortLaunch = useCallback(
@@ -59,7 +59,7 @@ function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
         onFailureSound();
       }
     },
-    [getLaunches, onAbortSound, onFailureSound]
+    [getLaunches, onAbortSound, onFailureSound],
   );
 
   return {
@@ -71,3 +71,4 @@ function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
 }
 
 export default useLaunches;
+
