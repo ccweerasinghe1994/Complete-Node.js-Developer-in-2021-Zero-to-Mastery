@@ -1,4 +1,4 @@
-import { getAllLaunches, addNewLaunch } from '../../models/launches.model.js';
+import {getAllLaunches, addNewLaunch, isLaunchExists} from '../../models/launches.model.js';
 
 function httpGetAllLaunches(req, res) {
   return res.status(200).json(getAllLaunches());
@@ -23,4 +23,13 @@ function httpAddNewLaunch(req, res) {
   return res.status(201).json(body);
 }
 
-export { httpGetAllLaunches, httpAddNewLaunch };
+function httpDeleteLaunch(req,res){
+  const id = req.params.id;
+  if(!isLaunchExists(id)){
+    return res.status(404).json({
+      error:'Launch Not Found'
+    })
+  }
+  return res.status(200).json(aborted)
+}
+export { httpGetAllLaunches, httpAddNewLaunch,httpDeleteLaunch };
