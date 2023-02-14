@@ -39,6 +39,7 @@ function abortLaunchById(id) {
   const launch = launches.get(id);
   launch.upcoming = false;
   launch.success = false;
+  return launch;
 }
 
 export { getAllLaunches, addNewLaunch, isLaunchExists, abortLaunchById };
