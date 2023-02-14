@@ -10,13 +10,18 @@
     "server": "npm run watch t --prefix server",
     "client": "npm start --prefix client",
     "watch": "concurrently \"npm run server\" \"npm run client\" ",
-    "deploy":"npm run build --prefix client && npm start --prefix server ",
-    "test": "npm run test --prefix server && npm run test --prefix client"
+    "deploy": "npm run build --prefix client && npm start --prefix server ",
+    "test": "npm run test --prefix server && npm run test --prefix client",
+    "lint": "npx prettier --write .",
+    "lint-check": "npx prettier --check ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^7.6.0"
+  },
+  "devDependencies": {
+    "prettier": "2.8.4"
   }
 }

@@ -13,8 +13,8 @@ const launch = {
 
 launches.set(launch.flightNUmber, launch);
 
-function isLaunchExists(id){
-    return launches.has(id)
+function isLaunchExists(id) {
+  return launches.has(id);
 }
 
 function getAllLaunches() {
@@ -30,13 +30,15 @@ function addNewLaunch(body) {
       customer: ['ZTM', 'NASA'],
       upcoming: true,
       success: true,
-    })
+    }),
   );
   return launches.get(latestLaunchNumber);
 }
 
-function abortLaunchById(){
-
+function abortLaunchById(id) {
+  const launch = launches.get(id);
+  launch.upcoming = false;
+  launch.success = false;
 }
 
-export { getAllLaunches, addNewLaunch ,isLaunchExists, abortLaunchById};
+export { getAllLaunches, addNewLaunch, isLaunchExists, abortLaunchById };
