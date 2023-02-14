@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { withStyles, Appear, Link, Paragraph, Table, Words } from 'arwes';
-
 import Clickable from '../components/Clickable';
 
 const styles = () => ({
@@ -12,7 +11,10 @@ const styles = () => ({
 
 const Upcoming = (props) => {
   const { entered, launches, classes, abortLaunch } = props;
-  console.log(launches);
+  const handleClick = (flightNumber) => {
+    console.log('flightNumber', flightNumber);
+    abortLaunch(flightNumber);
+  };
   const tableBody = useMemo(() => {
     return launches
       ?.filter((launch) => launch.upcoming)
@@ -23,7 +25,7 @@ const Upcoming = (props) => {
               <Clickable style={{ color: 'red' }}>
                 <Link
                   className={classes.link}
-                  onClick={() => abortLaunch(launch.flightNumber)}
+                  onClick={() => handleClick(launch.flightNUmber)}
                 >
                   ✖
                 </Link>
@@ -40,7 +42,7 @@ const Upcoming = (props) => {
   }, [launches, abortLaunch, classes.link]);
 
   return (
-    <Appear id="upcoming" animate show={entered}>
+    <Appear id='upcoming' animate show={entered}>
       <Paragraph>
         Upcoming missions including both SpaceX launches and newly scheduled
         Zero to Mastery rockets.
@@ -49,14 +51,14 @@ const Upcoming = (props) => {
       <Table animate show={entered}>
         <table style={{ tableLayout: 'fixed' }}>
           <thead>
-            <tr>
-              <th style={{ width: '3rem' }}></th>
-              <th style={{ width: '3rem' }}>No.</th>
-              <th style={{ width: '10rem' }}>Date</th>
-              <th style={{ width: '11rem' }}>Mission</th>
-              <th style={{ width: '11rem' }}>Rocket</th>
-              <th>Destination</th>
-            </tr>
+          <tr>
+            <th style={{ width: '3rem' }}></th>
+            <th style={{ width: '3rem' }}>No.</th>
+            <th style={{ width: '10rem' }}>Date</th>
+            <th style={{ width: '11rem' }}>Mission</th>
+            <th style={{ width: '11rem' }}>Rocket</th>
+            <th>Destination</th>
+          </tr>
           </thead>
           <tbody>{tableBody}</tbody>
         </table>
