@@ -1,6 +1,13 @@
 # Node Js Complete Guide
 
-##           
+- [Node Js Complete Guide](#node-js-complete-guide)
+  - [](#)
+    - [027 DELETE launches Aborting Launches 1](#027-delete-launches-aborting-launches-1)
+    - [028 DELETE launches Aborting Launches 2](#028-delete-launches-aborting-launches-2)
+    - [029 Updating Our Architecture Diagram](#029-updating-our-architecture-diagram)
+    - [030 Exercise Imposter Syndrome](#030-exercise-imposter-syndrome)
+
+##
 
 ### 027 DELETE launches Aborting Launches 1
 
@@ -140,3 +147,9 @@ const tableBody = useMemo(() => {
               </Link>
             </Clickable>
 ```
+
+### 029 Updating Our Architecture Diagram
+
+![Alt text](img/architecture.drawio.png)
+
+### 030 Exercise Imposter Syndrome

@@ -74,3 +74,5 @@ typings/
 
 # FuseBox cache
 .fusebox/
+img/architecture.drawio
+img/.$architecture.drawio.bkp
