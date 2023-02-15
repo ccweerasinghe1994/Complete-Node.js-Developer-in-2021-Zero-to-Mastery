@@ -76,3 +76,4 @@ typings/
 .fusebox/
 img/architecture.drawio
 img/.$architecture.drawio.bkp
+*.pem
