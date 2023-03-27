@@ -19,11 +19,11 @@ const launch = {
 saveLaunches(launch);
 
 async function getAllLaunches() {
-  return await launchesDataBase.find({}, { _id: 0, __v: 0 });
+  return launchesDataBase.find({}, {_id: 0, __v: 0});
 }
 
 async function existsLaunchWithId(launchId) {
-  return await launchesDataBase.findOne({ launchNumber: launchId });
+  return launchesDataBase.findOne({launchNumber: launchId});
 }
 
 async function abortLaunchById(launchId) {
